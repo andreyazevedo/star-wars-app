@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   getApiData() {
-    Api.getRandomPlanet()
+    return Api.getRandomPlanet()
     .then( data => {
       if ( this.haveGameRequirements( data ) ) {
         this.setState( { planet: data } );
@@ -40,7 +40,7 @@ class App extends Component {
   render() {
     if ( this.state.planet.length === 0 )
       return null;
-      
+
     return(
       <div className="App">
         <Planet data={ this.state.planet } />
