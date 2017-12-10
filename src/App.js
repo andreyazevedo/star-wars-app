@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Planet from './Planet';
 import * as Api from './api';
+import './App.css';
 
 class App extends Component {
   constructor( props ) {

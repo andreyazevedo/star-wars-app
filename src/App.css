@@ -1,0 +1,55 @@
+body {
+  background: #000;
+  background-image: url(./particles.png);
+  font-family: 'PT Sans', sans-serif;
+}
+
+.App {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+}
+
+#planet {
+  background: #000;
+  border: 2px solid #fff;
+  color: #fff;
+  box-sizing: border-box;
+  max-width: 400px;
+  padding: 20px;
+  width: 100%;
+}
+
+.name {
+  color: #000;
+  letter-spacing: 8px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: -2px -2px 0 #ffe600, 2px -2px 0 #ffe600, -2px 2px 0 #ffe600, 2px 2px 0 #ffe600;
+  padding-top: 0;
+  padding-bottom: 20px;
+}
+
+.attributes {
+  list-style: none;
+  padding: 0;
+}
+
+.attributes strong {
+  text-transform: uppercase;
+}
+
+.attributes span {
+  float: right;
+  font-size: 14px;
+}
+
+.attributes li {
+  border-bottom: 1px solid #fff;
+  clear: both;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
