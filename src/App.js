@@ -13,6 +13,9 @@ class App extends Component {
   }
 
   getApiData() {
+    // This function calls the Swapi API to get a random planet data. With a sucessful
+    // response the data is passed to 'haveGameRequirements()'.
+    // If its returns true then the state is updated.
     return Api.getRandomPlanet()
     .then( data => {
       if ( this.haveGameRequirements( data ) ) {
