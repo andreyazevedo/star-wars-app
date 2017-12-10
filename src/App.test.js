@@ -32,3 +32,42 @@ it('haveGameRequirements() return false if name property is unknown', () => {
   const wrapper = shallow( <App />, { disableLifecycleMethods: true } );
   expect( wrapper.instance().haveGameRequirements( fakeData ) ).toEqual( false );
 });
+
+it('haveGameRequirements() return false if name property is unknown', () => {
+  const fakeData = {
+    name: 'unknown',
+    population: 9000,
+    climate: 'sunny',
+    terrain: 'desert',
+    films: []
+  };
+
+  const wrapper = shallow( <App />, { disableLifecycleMethods: true } );
+  expect( wrapper.instance().haveGameRequirements( fakeData ) ).toEqual( false );
+});
+
+it('haveGameRequirements() return false if climate property is unknown', () => {
+  const fakeData = {
+    name: 'earth',
+    population: 9000,
+    climate: 'unknown',
+    terrain: 'desert',
+    films: []
+  };
+
+  const wrapper = shallow( <App />, { disableLifecycleMethods: true } );
+  expect( wrapper.instance().haveGameRequirements( fakeData ) ).toEqual( false );
+});
+
+it('haveGameRequirements() return false if terrain property is unknown', () => {
+  const fakeData = {
+    name: 'unknown',
+    population: 9000,
+    climate: 'sunny',
+    terrain: 'unknown',
+    films: []
+  };
+
+  const wrapper = shallow( <App />, { disableLifecycleMethods: true } );
+  expect( wrapper.instance().haveGameRequirements( fakeData ) ).toEqual( false );
+});
