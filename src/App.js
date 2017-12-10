@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Planet from './Planet';
 import * as Api from './api';
 import './App.css';
+import './loader.css';
 
 class App extends Component {
   constructor( props ) {
@@ -50,7 +51,14 @@ class App extends Component {
 
   render() {
     if ( this.state.planet.length === 0 )
-      return null;
+    return(
+      <div className="App">
+        <div className="spinner">
+          <div className="dot1"></div>
+          <div className="dot2"></div>
+        </div>
+      </div>
+    );
 
     return(
       <div className="App">
