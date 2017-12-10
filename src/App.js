@@ -22,7 +22,9 @@ class App extends Component {
     // If its returns true then the state is updated.
     return Api.getRandomPlanet()
     .then( data => {
-      if ( this.haveGameRequirements( data ) ) {
+      const planet_data = this.sanitizeData( data );
+
+      if ( this.haveGameRequirements( planet_data ) ) {
         this.setState( { planet: data } );
       } else {
         console.info( 'This planet have no suficient information. Getting another...' );
@@ -32,6 +34,32 @@ class App extends Component {
     .catch((error) => {
       console.error(error);
     });
+  }
+
+  sanitizeData( data ) {
+    // This function ensures that only the necessary values is passed
+    // to state and prevents errors from missing properties of API response
+    let planet = {
+      name: 'unknown',
+      population: 'unknown',
+      climate: 'unknown',
+      terrain: 'unknown',
+      films: 0
+    };
+
+    for ( const [key] of Object.entries(planet) ) {
+      if ( key === 'films' ) {
+        if ( data.hasOwnProperty( key ) && Array.isArray( data[key] ) ) {
+          planet[key] = data[key].length;
+        }
+      } else {
+          if ( data.hasOwnProperty( key ) ) {
+            planet[key] = data[key];
+          }
+      }
+    }
+
+    return planet;
   }
 
   haveGameRequirements( data ) {
