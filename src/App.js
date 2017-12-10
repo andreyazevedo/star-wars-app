@@ -7,6 +7,8 @@ class App extends Component {
   constructor( props ) {
     super( props );
     this.state = { planet: [] };
+
+    this.getNextPlanet = this.getNextPlanet.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +43,11 @@ class App extends Component {
     } );
   }
 
+  getNextPlanet() {
+    this.setState( { planet: [] } );
+    this.getApiData();
+  }
+
   render() {
     if ( this.state.planet.length === 0 )
       return null;
@@ -48,6 +55,7 @@ class App extends Component {
     return(
       <div className="App">
         <Planet data={ this.state.planet } />
+        <button className="next-btn" onClick={ this.getNextPlanet }>Next</button>
       </div>
     );
   }

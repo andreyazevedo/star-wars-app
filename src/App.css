@@ -54,3 +54,21 @@ body {
   margin-bottom: 15px;
   padding-bottom: 15px;
 }
+
+.next-btn {
+  margin-top: 20px;
+  background: transparent;
+  border: 1px solid #ffe600;
+  padding: 10px 40px;
+  text-transform: uppercase;
+  color: #ffe600;
+  font-weight: bold;
+  transition: 0.3s all;
+  cursor: pointer;
+}
+
+.next-btn:hover,
+.next-btn:active {
+  background: #ffe600;
+  color: #000;
+}
