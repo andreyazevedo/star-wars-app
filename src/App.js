@@ -23,9 +23,8 @@ class App extends Component {
     return Api.getRandomPlanet()
     .then( data => {
       const planet_data = this.sanitizeData( data );
-
       if ( this.haveGameRequirements( planet_data ) ) {
-        this.setState( { planet: data } );
+        this.setState( { planet: planet_data } );
       } else {
         console.info( 'This planet have no suficient information. Getting another...' );
         this.getApiData();
