@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Planet from './Planet';
-import * as Api from './api';
-import './App.css';
-import './loader.css';
+import { getRandomPlanet } from '../actions/planets';
+import '../assets/App.css';
+import '../assets/loader.css';
 
 class App extends Component {
   constructor( props ) {
@@ -20,7 +20,7 @@ class App extends Component {
     // This function calls the Swapi API to get a random planet data. With a sucessful
     // response the data is passed to 'haveGameRequirements()'.
     // If its returns true then the state is updated.
-    return Api.getRandomPlanet()
+    return getRandomPlanet()
     .then( data => {
       const planet_data = this.sanitizeData( data );
       if ( this.haveGameRequirements( planet_data ) ) {
