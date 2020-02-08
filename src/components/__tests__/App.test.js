@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import App from './App';
+import App from '../App';
 
 it ('set state with planet data after finished API call', async () => {
   const wrapper = shallow( <App />, { disableLifecycleMethods: true } );
